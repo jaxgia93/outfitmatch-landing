@@ -1,0 +1,62 @@
+/* Outfit Match Global Styles */
+
+/* Dark/Light Theme Transition */
+body, body *, html, html * {
+  transition-property: background-color, color, border-color, box-shadow, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Dark Mode Body Class */
+body.dark-mode {
+  background-color: #181818;
+  color: #cccccc;
+}
+
+/* Light Mode Body Class */
+body.light-mode {
+  background-color: #ffffff;
+  color: #555555;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+/* Focus Styles */
+:focus {
+  outline: 3px solid #FF3E6C;
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.text-primary {
+  color: #FF3E6C !important;
+}
+
+.bg-primary {
+  background-color: #FF3E6C !important;
+}
+
+.border-primary {
+  border-color: #FF3E6C !important;
+}
