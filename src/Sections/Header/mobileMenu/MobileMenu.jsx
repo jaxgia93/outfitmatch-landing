@@ -35,7 +35,10 @@ const MobileMenu = () => {
         <button
           type="button"
           className="btn-close"
-          data-bs-dismiss="offcanvas"
+          onClick={() => {
+            document.body.classList.remove("nav-expanded");
+            document.getElementById("offcanvasStaco").classList.remove("show");
+          }}
           aria-label="Close"
         ></button>
       </div>

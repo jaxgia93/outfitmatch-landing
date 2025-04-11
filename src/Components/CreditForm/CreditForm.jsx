@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -38,6 +37,7 @@ const FormWrapper = styled.div`
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    min-height: 45px; /* Added min-height */
     &:focus {
       border-color: ${({ theme }) => theme.colors.primary};
       outline: none;

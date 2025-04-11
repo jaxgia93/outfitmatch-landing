@@ -25,43 +25,43 @@ const MobileMenuStyleWrapper = styled.div`
   .nav-menu {
     margin: 0 auto;
     padding: 0;
-    padding: 0;
     list-style: none;
+    width: 100%;
+  }
 
-    li {
-      overflow: hidden;
-    }
+  li {
+    overflow: hidden;
+  }
 
-    li a,
-    li button {
-      border-bottom: 1px solid ${({ theme }) => theme.colors.blackColor}26;
-      display: block;
-      text-transform: capitalize;
-      color: ${({ theme }) => theme.colors.title};
-      line-height: 20px;
-      padding: 16px 0;
-      width: 100%;
-      transition: 0.3s;
-      font-weight: 500;
-      font-size: 15px;
-    }
-    li li a,
-    li li button {
-      border-bottom: 1px solid transparent;
-      font-size: 14px;
-      color: ${({ theme }) => theme.colors.textColor};
-      line-height: 20px;
-      padding: 7px 20px;
-    }
-    li {
-      position: relative;
-      &.active {
-        a {
-          border-bottom: 1px solid transparent;
-        }
-        .sub-menu {
-          background-color: ${({ theme }) => theme.colors.blackColor}0a;
-        }
+  li a,
+  li button {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.blackColor}26;
+    display: block;
+    text-transform: capitalize;
+    color: ${({ theme }) => theme.colors.title};
+    line-height: 20px;
+    padding: 16px 0;
+    width: 100%;
+    transition: 0.3s;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  li li a,
+  li li button {
+    border-bottom: 1px solid transparent;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.textColor};
+    line-height: 20px;
+    padding: 7px 20px;
+  }
+  li {
+    position: relative;
+    &.active {
+      a {
+        border-bottom: 1px solid transparent;
+      }
+      .sub-menu {
+        background-color: ${({ theme }) => theme.colors.blackColor}0a;
       }
     }
   }

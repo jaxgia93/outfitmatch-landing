@@ -2,9 +2,18 @@
 export const scrollToElement = (id) => {
   const element = document.getElementById(id);
   if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+    // Close mobile menu if open
+    const bodySection = document.body;
+    bodySection.classList.remove("nav-expanded");
+    
+    // Scroll with offset for header
+    const offset = 100;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
     });
   }
 };
