@@ -5,11 +5,25 @@ import OutfitMatch from "./pages/outfit-match";
 import PrivacyPolicy from "./pages/privacy-policy";
 import CookiePolicy from "./pages/cookie-policy";
 import Terms from "./pages/terms";
+import CookieBanner from "./Components/CookieBanner/CookieBanner";
+import { useEffect } from "react";
 
 const App = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://cdn.iubenda.com/iubenda.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <HashRouter>
       <ScrollToTop />
+      <CookieBanner />
       <Routes>
         <Route path='/' element={<OutfitMatch />} />
         <Route path='/terms' element={<Terms />} />

@@ -779,15 +779,31 @@ html.dark-scheme body h6 {
   @media (max-width: 768px){
     body{
       font-size: 15px;
+      -webkit-text-size-adjust: 100%;
     }
     h2{
       font-size: 36px;
     }
-    .btn-inner{
-      min-width: max-content !important;
+    .container {
+      padding-left: 15px;
+      padding-right: 15px;
     }
-    .btn-olive-deep{
-      max-width: 180px;
+    .row {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+    [class*="col-"] {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .mobile-center {
+      text-align: center;
+    }
+    .mobile-mt-20 {
+      margin-top: 20px;
+    }
+    .mobile-mb-20 {
+      margin-bottom: 20px;
     }
   }
 
