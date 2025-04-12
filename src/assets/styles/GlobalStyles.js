@@ -540,7 +540,7 @@ html.dark-scheme body h6 {
 	visibility: hidden;
 	transition: all 0.3s ease-in;
   }
-  
+
 
 /*--------------------------------
 05. Utilities style

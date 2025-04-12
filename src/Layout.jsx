@@ -5,53 +5,47 @@ import { useEffect } from "react";
 const Layout = ({ pageTitle, scrollVariant, children }) => {
   // Aggiungi uno script per gestire le ancore
   useEffect(() => {
-    // Gestione degli hash URL all'avvio
-    const handleHashOnLoad = () => {
-      if (window.location.hash) {
-        const id = window.location.hash.substring(1);
-        const element = document.getElementById(id);
-        
-        if (element) {
-          setTimeout(() => {
-            const headerHeight = document.querySelector('.header-section')?.offsetHeight || 0;
-            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-            
-            window.scrollTo({
-              top: elementPosition - headerHeight - 20,
-              behavior: 'smooth'
-            });
-          }, 300); // Piccolo ritardo per assicurarsi che la pagina sia completamente caricata
-        }
-      }
-    };
+    const handleHashNavigation = () => {
+      // Remove initial # and potential second #
+      const hash = window.location.hash.replace(/^#+/, '');
+      if (!hash) return;
 
-    // Gestione del click sulle ancore per lo scorrimento fluido
-    const handleAnchorClick = (e) => {
-      const target = e.currentTarget;
-      
-      // Trova il link di destinazione
-      if (target.hash) {
-        e.preventDefault();
-        
-        const id = target.hash.substring(1);
-        const element = document.getElementById(id);
-        
-        if (element) {
+      const element = document.getElementById(hash);
+      if (element) {
+        setTimeout(() => {
           const headerHeight = document.querySelector('.header-section')?.offsetHeight || 0;
-          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-          
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+
           window.scrollTo({
             top: elementPosition - headerHeight - 20,
             behavior: 'smooth'
           });
-          
-          // Aggiorna l'URL con il nuovo hash ma senza ricaricare la pagina
-          window.history.pushState(null, null, target.hash);
-        }
+        }, 100);
       }
     };
 
-    handleHashOnLoad();
+    const handleAnchorClick = (e) => {
+      const target = e.currentTarget;
+      if (!target.hash) return;
+
+      e.preventDefault();
+      const hash = target.hash.replace(/^#+/, '');
+      const element = document.getElementById(hash);
+
+      if (element) {
+        const headerHeight = document.querySelector('.header-section')?.offsetHeight || 0;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+
+        window.scrollTo({
+          top: elementPosition - headerHeight - 20,
+          behavior: 'smooth'
+        });
+
+        window.history.pushState(null, null, `#${hash}`);
+      }
+    };
+
+    handleHashNavigation();
 
     // Aggiungi l'evento a tutti i link che puntano ad ancore
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
